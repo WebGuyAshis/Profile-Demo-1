@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gallery-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  background-color: aquamarine;
+}
+
+.gallery-img.active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  object-fit: contain;
+}
+
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <img src="" class="gallery-img">
+        <img src="" class="gallery-img">
+        <img src="" class="gallery-img">
+      </div>
+      <script>
+        const galleryImgs = document.querySelectorAll('.gallery-img');
+
+galleryImgs.forEach((img) => {
+  img.addEventListener('click', () => {
+    galleryImgs.forEach((img) => {
+      img.classList.remove('active');
+    });
+    img.classList.add('active');
+  });
+});
+
+      </script>
+</body>
+</html>
+
+
+
+#project-gallery {
+  position: relative;
+  padding: 10px;
+  height: 80vh;
+  width: 100%;
+  /* max-height: 75vh; */
+  /* max-width: 70vw; */
+  background-color: rgb(78, 198, 198);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-radius: 10px;
+}
+
+.gallery-img {
+  /* flex: 1; */
+  /* flex-basis: 30%; */
+  /* max-height: 50%;
+  max-width: 50%;
+  min-width: 180px; */
+  /* height: 500px; */
+  width: calc((100% - 20px)/ 3);
+  height: auto;
+
+  background-color: aquamarine;
+  border-radius: 10px;
+  transition: 1s;
+  /* transform: scale(1); */
+  /* transform-origin: center; */
+}
+
+.active {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* max-width: 100%;
+  max-height: 100%; */
+  height: 100%;
+  width: 100%;
+  transition: 1s;
+  /* background-color: black; */
+  /* z-index: 10; */
+  /* transform-origin: center; */
+  /* transform: scale(100%); */
+}
